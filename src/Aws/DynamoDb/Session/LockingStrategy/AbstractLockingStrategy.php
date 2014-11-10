@@ -74,14 +74,15 @@ abstract class AbstractLockingStrategy implements LockingStrategyInterface
             }
         }
         $attributes = array_merge($attributes, $this->getExtraAttributes());
-
+        $option_constant = defined("Ua::OPTION") ? constant("Ua::OPTION") : (defined("Aws\\Common\\Enum\\UaString::OPTION") ? constant("Aws\\Common\\Enum\\UaString::OPTION") : "ua.append");
+        $session_constant = defined("Ua::SESSION") ? constant("Ua::SESSION") : (defined("Aws\\Common\\Enum\\UaString::SESSION") ? constant("Aws\\Common\\Enum\\UaString::SESSION") : "SES");
         // Perform the UpdateItem command
         try {
             return (bool) $this->client->getCommand('UpdateItem', array(
                 'TableName' => $this->config->get('table_name'),
                 'Key' => $this->formatKey($id),
                 'AttributeUpdates' => $attributes,
-                Ua::OPTION => Ua::SESSION
+                $option_constant => $session_constant
             ))->execute();
         } catch (DynamoDbException $e) {
             return false;
