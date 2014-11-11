@@ -15,16 +15,15 @@
         "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
         "issues": "https://github.com/aws/aws-sdk-php/issues"
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:2870/guzzle.git"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
-        "guzzle/guzzle": "v3.7.4.2"
+        "2870/guzzle": "v3.7.4.2"
     },
+    "repositories": [
+        {
+            "2870/guzzle": "git@github.com:2870/guzzle.git"
+        }
+    ],
     "suggest": {
         "doctrine/cache": "Adds support for caching of credentials and responses",
         "ext-apc": "Allows service description opcode caching, request and response caching, and credentials caching",
