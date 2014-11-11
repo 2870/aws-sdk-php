@@ -17,7 +17,7 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "2870/guzzle": "v3.7.4.1-fixed"
+        "2870/guzzle": "v3.7.4.2"
     },
     "suggest": {
         "doctrine/cache": "Adds support for caching of credentials and responses",
